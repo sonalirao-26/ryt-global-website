@@ -58,7 +58,7 @@ const HeroSection = () => {
               </Button>
             </Link>
             <Link to="/services">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-6 text-base">
+              <Button size="lg" variant="outline" className="border-white bg-white text-black hover:bg-white/90 hover:text-black font-semibold px-8 py-6 text-base">
                 Explore Services
               </Button>
             </Link>

@@ -28,7 +28,7 @@ const CTASection = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-6 text-base">
+                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-6 text-base [&_svg]:text-white">
                   <Phone className="mr-2 h-5 w-5" />
                   Talk to Us
                 </Button>
