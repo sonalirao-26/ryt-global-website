@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
   GraduationCap, 
@@ -81,6 +82,21 @@ const deliveryModes = [
 ];
 
 const Services = () => {
+  const { slug } = useParams();
+
+  useEffect(() => {
+    if (slug) {
+      setTimeout(() => {
+        const el = document.getElementById(slug);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [slug]);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -104,7 +120,8 @@ const Services = () => {
             {services.map((service, index) => (
               <div 
                 key={service.title}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
+                id={service.href.split("/").pop()}
+                className={`scroll-mt-24 grid lg:grid-cols-2 gap-12 items-center ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >

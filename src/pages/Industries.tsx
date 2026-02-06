@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Building2, Landmark, Heart, Briefcase, Factory, ArrowRight, CheckCircle } from "lucide-react";
 
@@ -97,6 +98,21 @@ const industries = [
 ];
 
 const Industries = () => {
+  const { slug } = useParams();
+
+  useEffect(() => {
+    if (slug) {
+      setTimeout(() => {
+        const el = document.getElementById(slug);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [slug]);
+
   return (
     <Layout>
       {/* Hero Section */}
