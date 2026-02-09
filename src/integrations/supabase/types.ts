@@ -44,6 +44,90 @@ export type Database = {
         }
         Relationships: []
       }
+      training_requests: {
+        Row: {
+          additional_notes: string | null
+          budget_range: string | null
+          certification_required: string | null
+          city: string | null
+          company_size: string | null
+          country: string | null
+          created_at: string
+          customization_required: string | null
+          delivery_mode: string | null
+          department: string | null
+          description: string | null
+          designation: string | null
+          duration: string | null
+          email: string
+          experience_level: string | null
+          id: string
+          industry: string | null
+          organization_name: string
+          participants: string | null
+          phone: string
+          preferred_start_date: string | null
+          requestor_name: string
+          skill_category: string | null
+          target_audience: string | null
+          training_types: string[] | null
+        }
+        Insert: {
+          additional_notes?: string | null
+          budget_range?: string | null
+          certification_required?: string | null
+          city?: string | null
+          company_size?: string | null
+          country?: string | null
+          created_at?: string
+          customization_required?: string | null
+          delivery_mode?: string | null
+          department?: string | null
+          description?: string | null
+          designation?: string | null
+          duration?: string | null
+          email: string
+          experience_level?: string | null
+          id?: string
+          industry?: string | null
+          organization_name: string
+          participants?: string | null
+          phone: string
+          preferred_start_date?: string | null
+          requestor_name: string
+          skill_category?: string | null
+          target_audience?: string | null
+          training_types?: string[] | null
+        }
+        Update: {
+          additional_notes?: string | null
+          budget_range?: string | null
+          certification_required?: string | null
+          city?: string | null
+          company_size?: string | null
+          country?: string | null
+          created_at?: string
+          customization_required?: string | null
+          delivery_mode?: string | null
+          department?: string | null
+          description?: string | null
+          designation?: string | null
+          duration?: string | null
+          email?: string
+          experience_level?: string | null
+          id?: string
+          industry?: string | null
+          organization_name?: string
+          participants?: string | null
+          phone?: string
+          preferred_start_date?: string | null
+          requestor_name?: string
+          skill_category?: string | null
+          target_audience?: string | null
+          training_types?: string[] | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
