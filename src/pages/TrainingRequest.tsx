@@ -132,6 +132,7 @@ const TrainingRequest = () => {
     budgetRange: "",
     certificationRequired: "",
     customizationRequired: "",
+    description: "",
     additionalNotes: "",
   });
 
@@ -334,6 +335,17 @@ const TrainingRequest = () => {
                     className="bg-background"
                   />
                 </div>
+                <div className="md:col-span-2">
+                  <label className="form-label">Description</label>
+                  <Textarea
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    placeholder="Briefly describe your organization or training context..."
+                    rows={3}
+                    className="bg-background"
+                  />
+                </div>
               </div>
             </div>
 
@@ -344,7 +356,7 @@ const TrainingRequest = () => {
               </h2>
               
               <div className="mb-6">
-                <label className="form-label">Training Type (Select all that apply) *</label>
+                <label className="form-label">Training Type (Select all that apply)</label>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
                   {trainingTypes.map((type) => (
                     <div 
@@ -366,7 +378,7 @@ const TrainingRequest = () => {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="form-label">Mode of Delivery *</label>
+                  <label className="form-label">Mode of Delivery</label>
                   <Select onValueChange={(v) => handleSelectChange("deliveryMode", v)}>
                     <SelectTrigger className="bg-background">
                       <SelectValue placeholder="Select mode" />
@@ -379,7 +391,7 @@ const TrainingRequest = () => {
                   </Select>
                 </div>
                 <div>
-                  <label className="form-label">Target Audience *</label>
+                  <label className="form-label">Target Audience</label>
                   <Select onValueChange={(v) => handleSelectChange("targetAudience", v)}>
                     <SelectTrigger className="bg-background">
                       <SelectValue placeholder="Select audience" />
@@ -416,7 +428,7 @@ const TrainingRequest = () => {
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="form-label">Primary Skill Category *</label>
+                  <label className="form-label">Primary Skill Category</label>
                   <Select onValueChange={(v) => handleSelectChange("skillCategory", v)}>
                     <SelectTrigger className="bg-background">
                       <SelectValue placeholder="Select skill category" />
