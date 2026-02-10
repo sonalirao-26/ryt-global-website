@@ -27,17 +27,19 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const { error } = await supabase.from("contact_submissions").insert({
-      name: formData.name.trim(),
-      company: formData.company.trim(),
-      email: formData.email.trim(),
-      phone: formData.phone.trim() || null,
-      requirement: formData.requirement.trim(),
+    const { data, error } = await supabase.functions.invoke("submit-contact", {
+      body: {
+        name: formData.name.trim(),
+        company: formData.company.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || null,
+        requirement: formData.requirement.trim(),
+      },
     });
 
     setIsSubmitting(false);
 
-    if (error) {
+    if (error || (data && data.error)) {
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
