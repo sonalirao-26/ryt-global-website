@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
-import logo from "@/assets/logo.jpeg";
+
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
-              <img src={logo} alt="RYT Global" className="h-16 w-auto bg-white rounded p-2" />
+              <img src="/lovable-uploads/265b3f15-9a09-4fb0-ba81-33a366a01744.jpg" alt="RYT Global" className="h-16 w-auto bg-white rounded p-2" />
             </Link>
             <p className="text-white/80 text-sm leading-relaxed mb-6">
               RYT Global LLP is a trusted corporate training and capability-building partner 
