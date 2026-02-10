@@ -155,35 +155,37 @@ const TrainingRequest = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const { error } = await supabase.from("training_requests").insert({
-      organization_name: formData.organizationName.trim(),
-      industry: formData.industry || null,
-      company_size: formData.companySize || null,
-      requestor_name: formData.requestorName.trim(),
-      designation: formData.designation.trim() || null,
-      department: formData.department || null,
-      email: formData.email.trim(),
-      phone: formData.phone.trim(),
-      country: formData.country || null,
-      city: formData.city.trim() || null,
-      description: formData.description.trim() || null,
-      training_types: selectedTrainingTypes.length > 0 ? selectedTrainingTypes : null,
-      delivery_mode: formData.deliveryMode || null,
-      target_audience: formData.targetAudience || null,
-      experience_level: formData.experienceLevel || null,
-      participants: formData.participants.trim() || null,
-      skill_category: formData.skillCategory || null,
-      preferred_start_date: formData.preferredStartDate || null,
-      duration: formData.duration.trim() || null,
-      budget_range: formData.budgetRange || null,
-      certification_required: formData.certificationRequired || null,
-      customization_required: formData.customizationRequired || null,
-      additional_notes: formData.additionalNotes.trim() || null,
+    const { data, error } = await supabase.functions.invoke("submit-training-request", {
+      body: {
+        organization_name: formData.organizationName.trim(),
+        industry: formData.industry || null,
+        company_size: formData.companySize || null,
+        requestor_name: formData.requestorName.trim(),
+        designation: formData.designation.trim() || null,
+        department: formData.department || null,
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        country: formData.country || null,
+        city: formData.city.trim() || null,
+        description: formData.description.trim() || null,
+        training_types: selectedTrainingTypes.length > 0 ? selectedTrainingTypes : null,
+        delivery_mode: formData.deliveryMode || null,
+        target_audience: formData.targetAudience || null,
+        experience_level: formData.experienceLevel || null,
+        participants: formData.participants.trim() || null,
+        skill_category: formData.skillCategory || null,
+        preferred_start_date: formData.preferredStartDate || null,
+        duration: formData.duration.trim() || null,
+        budget_range: formData.budgetRange || null,
+        certification_required: formData.certificationRequired || null,
+        customization_required: formData.customizationRequired || null,
+        additional_notes: formData.additionalNotes.trim() || null,
+      },
     });
 
     setIsSubmitting(false);
 
-    if (error) {
+    if (error || (data && data.error)) {
       toast({
         title: "Submission failed",
         description: "Something went wrong. Please try again.",
