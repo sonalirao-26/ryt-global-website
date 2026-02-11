@@ -62,6 +62,10 @@ export default {
         teal: "hsl(var(--teal))",
         platinum: "hsl(var(--platinum))",
         gold: "hsl(var(--gold))",
+        "sky-blue": "hsl(var(--sky-blue))",
+        "royal-blue": "hsl(var(--royal-blue))",
+        "deep-navy": "hsl(var(--deep-navy))",
+        "mid-blue": "hsl(var(--mid-blue))",
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
