@@ -41,8 +41,11 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
-  return <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border">
-      <div className="container-custom">
+  return <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+      {/* Brand gradient top border */}
+      <div className="absolute inset-0 top-0 h-1 bg-gradient-to-r from-deep-navy via-royal-blue via-sky-blue to-teal pointer-events-none" />
+      
+      <div className="container-custom relative z-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
@@ -55,7 +58,7 @@ const Header = () => {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <Link to="/">
-                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-accent", isActive("/") ? "text-accent" : "text-foreground")}>
+                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-teal", isActive("/") ? "text-teal" : "text-foreground")}>
                       Home
                     </NavigationMenuLink>
                   </Link>
@@ -63,28 +66,28 @@ const Header = () => {
 
                 <NavigationMenuItem>
                   <Link to="/about">
-                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-accent", isActive("/about") ? "text-accent" : "text-foreground")}>
+                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-teal", isActive("/about") ? "text-teal" : "text-foreground")}>
                       About Us
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium bg-transparent hover:bg-transparent hover:text-accent data-[state=open]:text-accent">
+                  <NavigationMenuTrigger className="text-sm font-medium bg-transparent hover:bg-transparent hover:text-teal data-[state=open]:text-teal">
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-1 p-4 bg-white">
                       {services.map(service => <li key={service.href}>
                           <NavigationMenuLink asChild>
-                            <Link to={service.href} className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/10 hover:text-accent">
+                            <Link to={service.href} className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-teal/10 hover:text-teal">
                               <div className="text-sm font-medium">{service.title}</div>
                             </Link>
                           </NavigationMenuLink>
                         </li>)}
                       <li className="border-t mt-2 pt-2">
                         <NavigationMenuLink asChild>
-                          <Link to="/services" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/10 hover:text-accent font-medium text-sm">
+                          <Link to="/services" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-teal/10 hover:text-teal font-medium text-sm">
                             View All Services →
                           </Link>
                         </NavigationMenuLink>
@@ -94,21 +97,21 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium bg-transparent hover:bg-transparent hover:text-accent data-[state=open]:text-accent">
+                  <NavigationMenuTrigger className="text-sm font-medium bg-transparent hover:bg-transparent hover:text-teal data-[state=open]:text-teal">
                     Industries
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[350px] gap-1 p-4 bg-white">
                       {industries.map(industry => <li key={industry.href}>
                           <NavigationMenuLink asChild>
-                            <Link to={industry.href} className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/10 hover:text-accent">
+                            <Link to={industry.href} className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-teal/10 hover:text-teal">
                               <div className="text-sm font-medium">{industry.title}</div>
                             </Link>
                           </NavigationMenuLink>
                         </li>)}
                       <li className="border-t mt-2 pt-2">
                         <NavigationMenuLink asChild>
-                          <Link to="/industries" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/10 hover:text-accent font-medium text-sm">
+                          <Link to="/industries" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-teal/10 hover:text-teal font-medium text-sm">
                             View All Industries →
                           </Link>
                         </NavigationMenuLink>
@@ -119,7 +122,7 @@ const Header = () => {
 
                 <NavigationMenuItem>
                   <Link to="/trainers">
-                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-accent", isActive("/trainers") ? "text-accent" : "text-foreground")}>
+                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-teal", isActive("/trainers") ? "text-teal" : "text-foreground")}>
                       Trainers
                     </NavigationMenuLink>
                   </Link>
@@ -127,7 +130,7 @@ const Header = () => {
 
                 <NavigationMenuItem>
                   <Link to="/case-studies">
-                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-accent", isActive("/case-studies") ? "text-accent" : "text-foreground")}>
+                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-teal", isActive("/case-studies") ? "text-teal" : "text-foreground")}>
                       Case Studies
                     </NavigationMenuLink>
                   </Link>
@@ -135,7 +138,7 @@ const Header = () => {
 
                 <NavigationMenuItem>
                   <Link to="/contact">
-                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-accent", isActive("/contact") ? "text-accent" : "text-foreground")}>
+                    <NavigationMenuLink className={cn("px-4 py-2 text-sm font-medium transition-colors hover:text-teal", isActive("/contact") ? "text-teal" : "text-foreground")}>
                       Contact
                     </NavigationMenuLink>
                   </Link>
@@ -147,7 +150,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link to="/training-request">
-              <Button className="bg-accent hover:bg-accent/90 text-white font-medium px-6">
+              <Button className="bg-gradient-to-r from-teal to-teal/80 hover:from-teal/90 hover:to-teal/70 text-white font-medium px-6 shadow-md transition-all">
                 Request Proposal
               </Button>
             </Link>
@@ -185,7 +188,7 @@ const Header = () => {
               </Link>
               <div className="pt-4 px-4">
                 <Link to="/training-request" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-accent hover:bg-accent/90 text-white font-medium">
+                  <Button className="w-full bg-gradient-to-r from-teal to-teal/80 hover:from-teal/90 hover:to-teal/70 text-white font-medium">
                     Request Proposal
                   </Button>
                 </Link>
