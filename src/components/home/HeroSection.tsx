@@ -13,7 +13,7 @@ const HeroSection = () => {
       />
       
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/95 via-royal-blue/80 to-teal/50" />
       
       <div className="container-custom relative z-10">
         <div className="max-w-3xl">

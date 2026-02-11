@@ -6,7 +6,7 @@ const CTASection = () => {
   return (
     <section className="section-padding bg-secondary">
       <div className="container-custom">
-        <div className="bg-gradient-to-r from-primary via-primary to-charcoal rounded-2xl p-12 md:p-16 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-r from-deep-navy via-royal-blue to-sky-blue rounded-2xl p-12 md:p-16 text-center relative overflow-hidden">
           {/* Decorative circles */}
           <div className="absolute top-0 right-0 w-64 h-64 rounded-full border border-white/10 -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full border border-accent/20 translate-y-1/2 -translate-x-1/2" />
